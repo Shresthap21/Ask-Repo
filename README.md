@@ -6,18 +6,16 @@ AskRepo scans a repository, splits code into chunks, converts them into embeddin
 
 This allows developers to quickly understand unfamiliar codebases by asking natural language questions.
 
----
 
 ## 🚀 Features
 
-* 📂 Scan a repository and detect source code files
-* ✂️ Split code into overlapping chunks for better context
-* 🧠 Generate embeddings using **SentenceTransformers**
-* 📦 Store vectors in **FAISS** for fast similarity search
-* 🔎 Retrieve the most relevant code snippets
-* 🤖 Use **Groq LLM** to explain the code and answer questions
+* Scan a repository and detect source code files
+* Split code into overlapping chunks for better context
+* Generate embeddings using **SentenceTransformers**
+* Store vectors in **FAISS** for fast similarity search
+* Retrieve the most relevant code snippets
+* Use **Groq LLM** to explain the code and answer questions
 
----
 
 ## 🏗️ How It Works
 
@@ -45,7 +43,6 @@ LLM explanation
 
 This enables **semantic code search + AI explanations**.
 
----
 
 ## 📁 Project Structure
 
@@ -67,7 +64,6 @@ main.py              # Entry point for indexing and querying
 requirements.txt
 ```
 
----
 
 ## ⚙️ Installation
 
@@ -84,7 +80,6 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
----
 
 ## 🔑 Setup Environment Variables
 
@@ -100,7 +95,6 @@ Get a free API key from:
 https://console.groq.com
 ```
 
----
 
 ## ▶️ Running the Project
 
@@ -129,7 +123,6 @@ The system will:
 3. Generate embeddings
 4. Store vectors in FAISS
 
----
 
 ## 💬 Ask Questions About the Codebase
 
@@ -154,7 +147,6 @@ Authentication is handled through a JWT verification middleware
 that validates the incoming request token.
 ```
 
----
 
 ## 📦 Requirements
 
@@ -166,7 +158,6 @@ Main dependencies used:
 * `groq`
 * `python-dotenv`
 
----
 
 ## 🧠 Example Use Cases
 
@@ -178,7 +169,6 @@ AskRepo can help developers:
 * Explore open source projects
 * Learn how systems are structured
 
----
 
 ## 🔮 Possible Improvements
 
@@ -189,20 +179,3 @@ Future enhancements could include:
 * Persistent FAISS index
 * CLI tool interface
 * Web UI for interactive queries
-
----
-
-## 📜 License
-
-This project is open-source and available under the **MIT License**.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-Feel free to open issues or submit pull requests to improve the project.
-
----
-
-⭐ If you find this project useful, consider giving it a star!
