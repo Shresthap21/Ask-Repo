@@ -2,7 +2,33 @@ from core.scanner import scan_repository, load_file_content
 from core.chunker import chunk_code
 from vector_store.db import store_chunks, search
 from ai_assistant import generate_answer
+import os
+import shutil
+import subprocess
+import tempfile
 
+def prepare_repository(repo_input):
+    """
+    Accept either a local repository path or a GitHub URL.
+    """
+
+    if repo_input.startswith("https://github.com/"):
+        temp_dir = tempfile.mkdtemp()
+
+        print("\nCloning GitHub repository...\n")
+
+        subprocess.run(
+            ["git", "clone", "--depth", "1", repo_input, temp_dir],
+            check=True
+        )
+
+        return temp_dir, True
+
+    if os.path.isdir(repo_input):
+        return repo_input, False
+
+    print("Invalid repository path or GitHub URL.")
+    return None, False
 
 def index_repo(repo_path):
 
@@ -50,15 +76,8 @@ def ask_question():
 
     results = search(question)
 
-    print("\n" + "=" * 60)
-    print("RETRIEVED CODE")
-    print("=" * 60)
-
-    for i, result in enumerate(results, start=1):
-
-        print(f"\n[{i}] {result['file']} | Chunk {result['chunk']}")
-        print("-" * 60)
-        print(result["content"][:700])
+    print("\nSearching codebase...")
+    print(f"Found {len(results)} relevant code sections.")
 
     print("\n" + "=" * 60)
     print("GENERATING ANSWER...")
@@ -74,21 +93,31 @@ def ask_question():
 
 def main():
 
-    repo_path = input("Enter repository path: ")
+    repo_input = input("Enter local repository path or GitHub URL: ")
 
-    success = index_repo(repo_path)
+    repo_path, is_temp = prepare_repository(repo_input)
 
-    if not success:
+    if not repo_path:
         return
 
-    print("\nAsk questions about your codebase.")
-    print("Type 'exit' when you're done.")
+    try:
+        success = index_repo(repo_path)
 
-    while True:
+        if not success:
+            return
 
-        if not ask_question():
-            print("\nGoodbye!")
-            break
+        print("\nAsk questions about your codebase.")
+        print("Type 'exit' when you're done.")
+
+        while True:
+
+            if not ask_question():
+                print("\nGoodbye!")
+                break
+
+    finally:
+        if is_temp:
+            shutil.rmtree(repo_path, ignore_errors=True)
 
 
 if __name__ == "__main__":

@@ -10,18 +10,37 @@ SUPPORTED_EXTENSIONS = [
     ".c"
 ]
 
+EXCLUDED_DIRECTORIES = {
+    ".git",
+    "node_modules",
+    "__pycache__",
+    "dist",
+    "build",
+    ".next",
+    "venv",
+    ".venv"
+}
+
+
 def scan_repository(repo_path):
     code_files = []
-    
+
     for root, dirs, files in os.walk(repo_path):
-        if ".git" in root or "node_modules" in root or "__pycache__" in root:
-            continue
-        
+
+        # Don't scan generated/dependency folders
+        dirs[:] = [
+            directory
+            for directory in dirs
+            if directory not in EXCLUDED_DIRECTORIES
+        ]
+
         for file in files:
             if any(file.endswith(ext) for ext in SUPPORTED_EXTENSIONS):
                 full_path = os.path.join(root, file)
                 code_files.append(full_path)
+
     return code_files
+
 
 def load_file_content(file_path):
     """

@@ -32,6 +32,13 @@ clearly say that the retrieved code does not contain enough information.
 
 Mention relevant file names when useful.
 
+Formatting rules:
+- Return plain text only.
+- Do not use Markdown.
+- Do not use * or **.
+- Do not use code blocks.
+- Keep the answer concise and easy to read.
+
 Question:
 {question}
 
@@ -40,7 +47,7 @@ Retrieved code context:
 """
 
     response = client.chat.completions.create(
-        model="llama-3.1-8b-instant",
+        model="openai/gpt-oss-20b",
         messages=[
             {
                 "role": "user",
