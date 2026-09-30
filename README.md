@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 # AskRepo – AI Codebase Assistant
 
 Ask questions about any codebase using **semantic search + LLMs**.
@@ -181,4 +180,3 @@ Future enhancements could include:
 * Persistent FAISS index
 * CLI tool interface
 * Web UI for interactive queries
->>>>>>> 176e0315395e3fec0a719c76947cfec95520eaef
