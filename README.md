@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-=======
-# AskRepo – AI Codebase Assistant
+
+# AskRepo – Codebase QnA Tool
 
 Ask questions about any codebase using **semantic search + LLMs**.
 
@@ -165,7 +164,7 @@ Main dependencies used:
 
 AskRepo can help developers:
 
-* Understand unfamiliar repositories
+* Understand unfamiliar repositories (GitHub repo as well)
 * Locate where specific features are implemented
 * Navigate large codebases faster
 * Explore open source projects
@@ -177,8 +176,6 @@ AskRepo can help developers:
 Future enhancements could include:
 
 * Function-level code chunking
-* Support for GitHub repository URLs
 * Persistent FAISS index
 * CLI tool interface
 * Web UI for interactive queries
->>>>>>> 176e0315395e3fec0a719c76947cfec95520eaef
