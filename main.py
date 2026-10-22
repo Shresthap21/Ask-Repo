@@ -13,7 +13,7 @@ def prepare_repository(repo_input):
     """
 
     if repo_input.startswith("https://github.com/"):
-        temp_dir = tempfile.mkdtemp()
+        temp_dir = tempfile.mkdtemp() 
 
         print("\nCloning GitHub repository...\n")
 
@@ -56,7 +56,7 @@ def index_repo(repo_path):
                 "file": file,
                 "content": chunk,
                 "chunk": chunk_number
-            })
+            }) 
 
     print(f"Created {len(all_chunks)} code chunks.")
 

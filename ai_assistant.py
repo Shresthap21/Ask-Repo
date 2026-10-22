@@ -35,7 +35,6 @@ Mention relevant file names when useful.
 Formatting rules:
 - Return plain text only.
 - Do not use Markdown.
-- Do not use * or **.
 - Do not use code blocks.
 - Keep the answer concise and easy to read.
 

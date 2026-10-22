@@ -1,4 +1,4 @@
-import faiss
+import faiss 
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
@@ -40,7 +40,7 @@ def store_chunks(chunks):
 
     dimension = vectors.shape[1]
 
-    index = faiss.IndexFlatL2(dimension)
+    index = faiss.IndexFlatL2(dimension) 
     index.add(vectors)
 
     print(f"Stored {len(vectors)} vectors in FAISS index")
