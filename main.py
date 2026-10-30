@@ -107,7 +107,7 @@ def main():
             return
 
         print("\nAsk questions about your codebase.")
-        print("Type 'exit' when you're done.")
+       
 
         while True:
 

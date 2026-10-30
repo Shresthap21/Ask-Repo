@@ -43,9 +43,6 @@ def scan_repository(repo_path):
 
 
 def load_file_content(file_path):
-    """
-    Read and return the content of a file.
-    """
 
     try:
         with open(file_path, "r", encoding="utf-8") as f:
