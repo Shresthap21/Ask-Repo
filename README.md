@@ -71,7 +71,7 @@ requirements.txt
 Clone the repository:
 
 ```
-git clone https://github.com/yourusername/ask-repo
+git clone https://github.com/Shresthap21/ask-repo
 cd ask-repo
 ```
 
